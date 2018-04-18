@@ -1,0 +1,16 @@
+<% include ./partials/head %>
+
+<div class="container">
+<h2>Ajout de taches</h2>
+<form method="POST" action="#">
+  <div class="form-group">
+    <label for="exampleInputEmail1">Nom de la tache</label>
+    <input type="text" class="form-control" placeholder="Nom" name="title">
+    <label for="exampleInputEmail1">Détails de la tache</label>
+    <textarea name="details" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Contenu..."></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary">Ajouter</button>
+</form>
+</div>
+
+<% include ./partials/footer %>
