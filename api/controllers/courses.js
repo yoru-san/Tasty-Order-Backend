@@ -6,4 +6,8 @@ exports.index = (req, res) => {
     });
 }
 
-exports.patch = (req, res) => {}
+exports.patch = (req, res) => {
+    Course.findOneAndUpdate({_id: req.params.id}, {disponibility: req.body.disponibility}, {new: true}).then(data => {
+        res.json(data);
+    })
+}
