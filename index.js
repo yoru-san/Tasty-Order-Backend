@@ -14,7 +14,7 @@ app.use(express.static(__dirname + '/public'));
 
 routes.init(app);
 
-var port = process.env.PORT || 3080;
+var port = process.env.PORT || 8080;
 app.listen(port, () => {
     console.log("Server listening on port " + port);
 });
