@@ -11,6 +11,8 @@ app.set('view engine', 'ejs');
 
 app.use(bodyParser.json()); 
 app.use(express.static(__dirname + '/public'));
+app.set('views', __dirname + '/backoffice/views');
+
 
 routes.init(app);
 
