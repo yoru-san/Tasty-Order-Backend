@@ -1,5 +1,6 @@
 var courses_controllers = require('./controllers/courses');
 var orders_controllers = require('./controllers/orders');
+var display_controllers = require('./controllers/display')
 
 exports.init = (app) => {
 
@@ -17,6 +18,9 @@ app.get('/plats', (req,res) => {
 
 app.post('/plats', (req,res) => {
     courses_controllers.action(req, res);
+});
+app.get('/affichage', (req,res) => {
+    display_controllers.index(req, res);
 });
 
 }
