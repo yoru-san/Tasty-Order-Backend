@@ -1,3 +1,38 @@
 <% include ./partials/head %>
-
-<% include ./partials/footer %>
+<div class="row">
+  <div class="col">
+      <%  allStarters.forEach(function(starters) { %>
+      
+        <a href="#" scope="row"><img src="<%= starters.image %>" alt="Smiley face" height="80" width="80"></a>
+        <p><%= starters.name %></p>      
+        
+      <% }); %>
+  </div>
+  <div class="col">
+    <%  allDishes.forEach(function(dishes) { %>
+      
+      <a href="#" scope="row"><img src="<%= dishes.image %>" alt="Smiley face" height="80" width="80"></a>
+      <p><%= dishes.name %></p>      
+      
+    <% }); %>
+  </div>
+  <div class="col">
+    <%  allDesserts.forEach(function(desserts) { %>
+      
+      <a href="#" scope="row"><img src="<%= desserts.image %>" alt="Smiley face" height="80" width="80"></a>
+      <p><%= desserts.name %></p>      
+      
+    <% }); %>
+  </div>
+  <div class="col">
+    
+    <%  allDrinks.forEach(function(drink) { %>
+      
+      <a href="#" scope="row"><img src="<%= drink.image %>" alt="Smiley face" height="80" width="80"></a>
+      <p><%= drink.name %></p>      
+      
+    <% }); %>
+      
+    </div>
+  </div>
+  <% include ./partials/footer %>

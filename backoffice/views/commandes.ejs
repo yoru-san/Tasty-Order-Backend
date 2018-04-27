@@ -1,0 +1,10 @@
+<% include ./partials/head %>
+<div class="col">
+<%  allOrders.forEach(function(orders) { %>
+      
+<p> Commande table <%= orders.tableNumber %> : </p>
+<p><%= orders.items %> <button type="button" class="btn btn-success">commande pret</button></p>      
+
+<% }); %>
+</div>
+<% include ./partials/footer %>

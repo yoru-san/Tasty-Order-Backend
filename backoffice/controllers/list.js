@@ -14,7 +14,7 @@ exports.listWaiters = (req, res) => {
     })
 }
 	
-exports.listCourses = (req, res) => {
+exports.index = (req, res) => {
 	Course.find({ $or: [ {type: "Starter"}, {type: "Dish"}, {type: "Dessert"}, {type: "Drink"} ]}).then(data => {
 		let starters = data.filter(x => x.type == "Starter");
 		let dishes = data.filter(x => x.type == "Dish");

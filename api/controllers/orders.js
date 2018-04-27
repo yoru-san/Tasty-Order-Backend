@@ -3,7 +3,10 @@ var Order = require('../models/order').Order;
 exports.index = (req, res) => {
     Order.find(req.query).then((data) => {
         res.json(data);
-    });    
+    });   
+    Order.find().then(data => {
+        res.render("commandes", {allOrders: data});
+    }) 
 }
 
 exports.create = (req, res) => {
