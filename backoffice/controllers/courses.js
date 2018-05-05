@@ -1,8 +1,4 @@
-var Order = require('../../api/models/order').Order;
-var Waiter = require('../../api/models/waiter').Waiter;
 var Course = require('../../api/models/course').Course;
-
-
 
 exports.index = (req, res) => {
 	Course.find({ $or: [ {type: "Starter"}, {type: "Dish"}, {type: "Dessert"}, {type: "Drink"} ]}).then(data => {
@@ -15,6 +11,4 @@ exports.index = (req, res) => {
 	});
 }
 
-exports.action = (req, res) => {
-    
-}
+exports.changeDisponibility = (req, res) => { }
