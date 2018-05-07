@@ -3,17 +3,18 @@ var Order = require('../models/order').Order;
 exports.index = (req, res) => {
     Order.find(req.query).then((data) => {
         res.json(data);
-    });   
-    Order.find().then(data => {
-        res.render("commandes", {allOrders: data});
-    }) 
+    });
 }
 
 exports.create = (req, res) => {
-    var order = new Order;
+    var order = new Order();
+    console.log(req.body);
+    order.waiter = req.body.waiter;
     order.tableNumber = req.body.tableNumber;
     order.prepared = false;
     order.items = req.body.items;
+
+    console.log(order);
     
     order.save().then(data => {
         res.json(data);
