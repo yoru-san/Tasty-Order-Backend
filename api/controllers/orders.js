@@ -11,6 +11,7 @@ exports.create = (req, res) => {
     console.log(req.body);
     order.waiter = req.body.waiter;
     order.tableNumber = req.body.tableNumber;
+    order.totalPrice = req.body.totalPrice;    
     order.prepared = false;
     order.items = req.body.items;
 
