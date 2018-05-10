@@ -2,7 +2,10 @@ var Course = require('../models/course').Course;
 
 exports.index = (req, res) => {
     Course.find(req.query).then((data) => {
-        res.json(data);
+        data.forEach(element => {
+            console.log(element.disponibility);
+            res.json(data);
+        });
     });
 }
 
