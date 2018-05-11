@@ -11,8 +11,8 @@ exports.init = (app) => {
         courses_controller.index(req, res);
     });
 
-    app.patch('/api/courses/:id', (req, res) => {
-        courses_controller.patch(req, res);
+    app.patch('/api/courses', (req, res) => {
+        courses_controller.update(req, res);
     });
 
     app.get('/api/orders', (req, res) => {

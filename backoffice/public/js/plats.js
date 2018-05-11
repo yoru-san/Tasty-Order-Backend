@@ -29,7 +29,7 @@ function patchCourse(coursePatched) {
         data: coursePatched,
         dataType: "json"
     }).done(function(data) {
-        console.log("course disponibility patched + new dispo : " + data.disponibility);  
+            console.log("course disponibility patched + new dispo : " + data.disponibility);  
     }).fail(function () {
         console.log("failed to patch course");
     });
