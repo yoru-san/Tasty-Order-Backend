@@ -1,10 +1,13 @@
 <% include ./partials/head %>
-<div class="col">
-<%  allOrders.forEach(function(orders) { %>
-      
-<p> Commande table <%= orders.tableNumber %> : </p>
-<p><%= orders.items %> <button type="button" class="btn btn-success">commande pret</button></p>      
-
-<% }); %>
+<div class="col orders">
+    <%  allOrders.forEach(function(order) { %>
+    <div class="<%= order._id %>">   
+        <h3> Commande table <%= order.tableNumber %> : </h3>
+        <%  order.items.forEach(function(item) { %>
+            <li><%= item %></li>
+        <% }); %>
+        <button type="button" class="btn btn-success" onclick="changeStatus('<%= order._id %>');">Commande prête</button>    
+    </div>
+    <% }); %>
 </div>
 <% include ./partials/footer %>

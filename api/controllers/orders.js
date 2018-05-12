@@ -34,3 +34,9 @@ exports.patch = (req, res) => {
         res.json(data);
     })
 }
+
+exports.update = (req, res) => {
+    Order.findOneAndUpdate({_id: req.body._id}, { $set: { prepared: req.body.prepared } }, {new: true}).then(data => {
+        res.json(data);
+    })
+}

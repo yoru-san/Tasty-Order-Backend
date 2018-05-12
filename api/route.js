@@ -23,8 +23,8 @@ exports.init = (app) => {
         orders_controller.create(req, res);
     });
 
-    app.patch('/api/orders/:id', (req, res) => {
-        orders_controller.patch(req, res);
+    app.patch('/api/orders', (req, res) => {
+        orders_controller.update(req, res);
     });
 
 }

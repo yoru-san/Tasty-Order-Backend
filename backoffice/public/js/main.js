@@ -34,3 +34,33 @@ function patchCourse(coursePatched) {
         console.log("failed to patch course");
     });
 }
+
+function changeStatus(orderId) {
+    var url = "http://localhost:8080/api/orders?_id=";
+    var completeURL = url.concat(orderId);
+    $.ajax({
+        url: completeURL,
+        method: 'GET',
+        dataType: "json"
+    }).done(function(data) {
+        data.forEach(order => {
+            order.prepared = true;
+            patchOrder(order);
+        });
+    }).fail(function () {
+        console.log("failed to get this order");
+    });
+}
+
+function patchOrder(orderPatched) {
+    $.ajax({
+        url: "http://localhost:8080/api/orders",
+        method: 'PATCH',
+        data: orderPatched,
+        dataType: "json"
+    }).done(function(data) {
+            console.log("order status patched + new status : " + data.prepared);  
+    }).fail(function () {
+        console.log("failed to patch order");
+    });
+}
