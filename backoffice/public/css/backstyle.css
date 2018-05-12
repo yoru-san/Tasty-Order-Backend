@@ -1,3 +1,7 @@
 .img-dishes {
     margin-left: 77px;
 }
+
+.unavailable {
+    filter: grayscale(100%);
+}

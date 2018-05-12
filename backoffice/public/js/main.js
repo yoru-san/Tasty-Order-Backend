@@ -1,4 +1,4 @@
-function changeDisponibility(courseId) {
+function changeDisponibility(courseId, imageNode) {
     var url = "http://localhost:8080/api/courses?_id=";
     var completeURL = url.concat(courseId);
     console.log(completeURL);
@@ -16,6 +16,8 @@ function changeDisponibility(courseId) {
             
             //Envoi de la nouvelle disponibilité
             patchCourse(course);
+
+            $(imageNode).toggleClass('unavailable');
         });
     }).fail(function () {
         console.log("failed to get this course");

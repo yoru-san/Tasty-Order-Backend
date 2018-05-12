@@ -2,41 +2,55 @@
 <div class="container">
     <h2 class="text-center">Plat de la carte :</h2>
   <div class="row">
+
     <div class="col">
       <%  allStarters.forEach(function(starter) { %>
-        
-        <img src="<%= starter.image %>" height="100" width="100" class="img-dishes" onclick="changeDisponibility('<%= starter._id %>');">
-        <p class="text-center"><%= starter.name %></p>      
-        
-        <% }); %>
-      </div>
-      <div class="col">
-        <%  allDishes.forEach(function(dish) { %>
-          
-          <img src="<%= dish.image %>" height="100" width="100" class="img-dishes" onclick="changeDisponibility('<%= dish._id %>');">
-          <p class="text-center"><%= dish.name %></p>      
-          
-          <% }); %>
-        </div>
-        <div class="col">
-          <%  allDesserts.forEach(function(dessert) { %>
-            
-            <img src="<%= dessert.image %>" height="100" width="100" class="img-dishes" onclick="changeDisponibility('<%= dessert._id %>');">
-            <p class="text-center"><%= dessert.name %></p>      
-            
-            <% }); %>
-          </div>
-          <div class="col">
-            
-            <%  allDrinks.forEach(function(drink) { %>
-              
-              <img src="<%= drink.image %>" height="100" width="100" class="img-dishes" onclick="changeDisponibility('<%= drink._id %>');">
-              <p class="text-center"><%= drink.name %></p>      
-              
-              <% }); %>
-              
-            </div>
-          </div>
-        </div>
-        <script src="js/plats.js"></script>
-        <% include ./partials/footer %>
+        <% if (starter.disponibility) { %>
+          <img src="<%= starter.image %>" height="100" width="100" class="img-dishes" onclick="changeDisponibility('<%= starter._id %>', this);">
+          <p class="text-center"><%= starter.name %></p>      
+        <% } else {  %> 
+          <img src="<%= starter.image %>" height="100" width="100" class="img-dishes unavailable" onclick="changeDisponibility('<%= starter._id %>', this);">
+          <p class="text-center"><%= starter.name %></p> 
+        <% } %>
+      <% }); %>
+    </div>
+
+    <div class="col">
+      <%  allDishes.forEach(function(dish) { %>
+        <% if (dish.disponibility) { %>
+            <img src="<%= dish.image %>" height="100" width="100" class="img-dishes" onclick="changeDisponibility('<%= dish._id %>', this);">
+            <p class="text-center"><%= dish.name %></p>      
+        <% } else {  %> 
+          <img src="<%= dish.image %>" height="100" width="100" class="img-dishes unavailable" onclick="changeDisponibility('<%= dish._id %>', this);">
+          <p class="text-center"><%= dish.name %></p> 
+        <% } %>
+      <% }); %>
+    </div>
+
+    <div class="col">
+      <%  allDesserts.forEach(function(dessert) { %>
+        <% if (dessert.disponibility) { %>
+          <img src="<%= dessert.image %>" height="100" width="100" class="img-dishes" onclick="changeDisponibility('<%= dessert._id %>', this);">
+          <p class="text-center"><%= dessert.name %></p>      
+        <% } else {  %> 
+          <img src="<%= dessert.image %>" height="100" width="100" class="img-dishes unavailable" onclick="changeDisponibility('<%= dessert._id %>', this);">
+          <p class="text-center"><%= dessert.name %></p>  
+        <% } %>
+      <% }); %>
+    </div>
+
+    <div class="col">
+      <%  allDrinks.forEach(function(drink) { %>
+        <% if (drink.disponibility) { %>
+          <img src="<%= drink.image %>" height="100" width="100" class="img-dishes" onclick="changeDisponibility('<%= drink._id %>', this);">
+          <p class="text-center"><%= drink.name %></p>      
+        <% } else {  %> 
+          <img src="<%= drink.image %>" height="100" width="100" class="img-dishes unavailable" onclick="changeDisponibility('<%= drink._id %>', this);">
+          <p class="text-center"><%= drink.name %></p> 
+        <% } %>
+      <% }); %>
+    </div>
+
+  </div>
+</div>
+<% include ./partials/footer %>
