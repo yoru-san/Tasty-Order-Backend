@@ -1,5 +1,6 @@
 var Course = require('../../api/models/course').Course;
 
+//Récupération de tout les éléments du menu selon leur type
 exports.index = (req, res) => {
 	Course.find({ $or: [ {type: "Starter"}, {type: "Dish"}, {type: "Dessert"}, {type: "Drink"} ]}).then(data => {
 		let starters = data.filter(x => x.type == "Starter");

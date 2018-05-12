@@ -8,11 +8,13 @@ function changeDisponibility(courseId) {
         dataType: "json"
     }).done(function(data) {
         data.forEach(course => {
+            //Changement de la disponibilité selon son état
             if (course.disponibility)
             course.disponibility = false;
             else 
             course.disponibility = true;
             
+            //Envoi de la nouvelle disponibilité
             patchCourse(course);
         });
     }).fail(function () {
@@ -42,7 +44,9 @@ function changeStatus(orderId) {
         dataType: "json"
     }).done(function(data) {
         data.forEach(order => {
+            //Changement du statut de la commande en prête
             order.prepared = true;
+            //Envoi du nouveau statut
             patchOrder(order);
             $(`#${order._id}`).remove();
         });

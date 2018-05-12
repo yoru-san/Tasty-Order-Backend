@@ -8,6 +8,7 @@ exports.index = (req, res) => {
     });
 }
 
+//Changement de la disponibilité de l'élément du menu
 exports.update = (req, res) => {
     Course.findOneAndUpdate({_id: req.body._id}, { $set: { disponibility: req.body.disponibility } }, {new: true}).then(data => {
         res.json(data);
