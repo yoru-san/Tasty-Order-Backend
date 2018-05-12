@@ -13,8 +13,6 @@ function changeDisponibility(courseId) {
             else 
             course.disponibility = true;
             
-
-            console.log(course.disponibility);
             patchCourse(course);
         });
     }).fail(function () {
@@ -46,6 +44,7 @@ function changeStatus(orderId) {
         data.forEach(order => {
             order.prepared = true;
             patchOrder(order);
+            $(`#${order._id}`).remove();
         });
     }).fail(function () {
         console.log("failed to get this order");

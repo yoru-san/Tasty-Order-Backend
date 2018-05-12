@@ -1,7 +1,7 @@
 <% include ./partials/head %>
-<div class="col orders">
+<div class="col">
     <%  allOrders.forEach(function(order) { %>
-    <div class="<%= order._id %>">   
+    <div id="<%= order._id %>">   
         <h3> Commande table <%= order.tableNumber %> : </h3>
         <%  order.items.forEach(function(item) { %>
             <li><%= item %></li>
