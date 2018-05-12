@@ -11,5 +11,5 @@ exports.index = (req, res) => {
 exports.update = (req, res) => {
     Course.findOneAndUpdate({_id: req.body._id}, { $set: { disponibility: req.body.disponibility } }, {new: true}).then(data => {
         res.json(data);
-    })
+    });
 }

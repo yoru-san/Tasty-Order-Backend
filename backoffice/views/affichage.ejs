@@ -1,3 +1,13 @@
 <% include ./partials/head %>
 
+<h1>Tables prêtes à être servie :</h1>
+
+<% preparedOrders.forEach(function (order) { %>
+    <div class="jumbotron">
+        <h1>Serveur : <%= order.waiter.name %></h1>
+        <h1> Numéro de la table : <%= order.tableNumber %></h1>
+    </div>
+ <% }); %>
+
+
 <% include ./partials/footer %>

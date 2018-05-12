@@ -4,7 +4,7 @@
     <div id="<%= order._id %>">   
         <h3> Commande table <%= order.tableNumber %> : </h3>
         <%  order.items.forEach(function(item) { %>
-            <li><%= item %></li>
+            <li><%= item.name %></li>
         <% }); %>
         <button type="button" class="btn btn-success" onclick="changeStatus('<%= order._id %>');">Commande prête</button>    
     </div>

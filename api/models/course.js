@@ -5,7 +5,5 @@ exports.Course = mongoose.model('Course', {
     prix: { type: Number, required: true },
     image: { type: String, required: true },
     type: { type: String, required: true },
-    disponibility: { type: Boolean, required: true },
-    
-    
+    disponibility: { type: Boolean, required: true }
 });

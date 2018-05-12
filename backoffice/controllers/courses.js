@@ -10,5 +10,3 @@ exports.index = (req, res) => {
 		res.render("plats", {allStarters: starters, allDishes: dishes, allDesserts: desserts, allDrinks: drinks});
 	});
 }
-
-exports.changeDisponibility = (req, res) => { }

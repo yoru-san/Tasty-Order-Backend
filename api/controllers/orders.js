@@ -22,21 +22,8 @@ exports.create = (req, res) => {
     });
 }
 
-exports.patch = (req, res) => {
-    let modifications = {};
-    if (req.body.prepared != undefined)
-        modifications.prepared = req.body.prepared;
-    
-    if (req.body.items != undefined)
-        modifications.items = req.body.items;
-
-    Order.findOneAndUpdate({_id: req.params.id}, modifications, {new: true} ).then(data => {
-        res.json(data);
-    })
-}
-
 exports.update = (req, res) => {
     Order.findOneAndUpdate({_id: req.body._id}, { $set: { prepared: req.body.prepared } }, {new: true}).then(data => {
         res.json(data);
-    })
+    });
 }
