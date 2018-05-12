@@ -1,7 +1,7 @@
 var Order = require('../models/order').Order;
 
 exports.index = (req, res) => {
-    Order.find(req.query).then((data) => {
+    Order.find(req.query).populate("waiter").populate("items").then((data) => {
         res.json(data);
     });
 }
