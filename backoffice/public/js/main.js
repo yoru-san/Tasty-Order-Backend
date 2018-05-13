@@ -64,7 +64,7 @@ function patchOrder(orderPatched) {
         data: orderPatched,
         dataType: "json"
     }).done(function(data) {
-            console.log("order status patched + new status : " + data.prepared);  
+            console.log("order status patched + new status : " + data.prepared);
     }).fail(function () {
         console.log("failed to patch order");
     });

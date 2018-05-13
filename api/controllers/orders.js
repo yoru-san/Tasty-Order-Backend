@@ -24,17 +24,17 @@ exports.create = (req, res) => {
 
 //Changement du statut de préparation ou paiement de la commande
 exports.update = (req, res) => {
-    console.log(req.body.paid)
-    if (req.body.paid) {
-        Order.findOneAndUpdate({_id: req.body._id}, { $set: { paid: req.body.paid } }, {new: true}).then(data => {
-            res.json(data);
-        });
-    } else {
-        Order.findOneAndUpdate({_id: req.body._id}, { $set: { prepared: req.body.prepared } }, {new: true}).then(data => {
-            res.json(data);
-        });
-    }
+    var update = {};
 
+    if (req.body.paid)
+        update.paid = req.body.paid;
+
+    if (req.body.prepared)
+        update.prepared = req.body.prepared;
+
+        Order.findOneAndUpdate({_id: req.body._id}, { $set: update }, {new: true}).then(data => {
+            res.json(data);
+        });
 }
 
 
