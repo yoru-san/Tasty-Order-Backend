@@ -7,7 +7,7 @@ var Order = require('../../api/models/order').Order;
 // }
 
 exports.index = (req, res) => {
-    Order.find({ prepared: true }).populate('waiter').populate('items').then(data => {
+    Order.find({ prepared: true, paid: false }).populate('waiter').populate('items').then(data => {
         res.render('affichage', { preparedOrders: data });
     })
 }
