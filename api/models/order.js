@@ -6,5 +6,6 @@ exports.Order = mongoose.model('Order', {
     waiter: { type: ObjectId, ref: 'Waiter', required: true },
     totalPrice: { type: Number, required: true },
     prepared: { type: Boolean, required: true },
+    paid: { type: Boolean, required: true },   
     items: [{ type: ObjectId, ref: 'Course' }]
 });

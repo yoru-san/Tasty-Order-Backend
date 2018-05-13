@@ -14,6 +14,7 @@ exports.create = (req, res) => {
     order.tableNumber = req.body.tableNumber;
     order.totalPrice = req.body.totalPrice;    
     order.prepared = false;
+    order.paid = false;    
     order.items = req.body.items;
     
     order.save().then(data => {
@@ -21,9 +22,19 @@ exports.create = (req, res) => {
     });
 }
 
-//Changement du statut de préparation de la commande
+//Changement du statut de préparation ou paiement de la commande
 exports.update = (req, res) => {
-    Order.findOneAndUpdate({_id: req.body._id}, { $set: { prepared: req.body.prepared } }, {new: true}).then(data => {
-        res.json(data);
-    });
+    console.log(req.body.paid)
+    if (req.body.paid) {
+        Order.findOneAndUpdate({_id: req.body._id}, { $set: { paid: req.body.paid } }, {new: true}).then(data => {
+            res.json(data);
+        });
+    } else {
+        Order.findOneAndUpdate({_id: req.body._id}, { $set: { prepared: req.body.prepared } }, {new: true}).then(data => {
+            res.json(data);
+        });
+    }
+
 }
+
+
